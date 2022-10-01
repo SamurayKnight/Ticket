@@ -3,12 +3,11 @@ const $ = selector => document.querySelector(selector);
 
 
 //Selecionando los tags.
-const wrapper = $('.wrapper');
 const ticket = $('.ticket');
 
 
 //Recuperando los objetos width y height del wrapper tag especificando que información con .getBoundingClientRect();
-const { width, height } = wrapper.getBoundingClientRect();
+const { width, height } = document.body.getBoundingClientRect();
 
 
 //Valores basados en los objetos obtenidos.
@@ -17,7 +16,7 @@ const halfHeight = height /2;
 
 
 //Modificamos el evento 'mousemove' para que la tarjeta rote. 
-wrapper.addEventListener('mousemove', event => {
+window.addEventListener('mousemove', event => {
 
     //Especificación de que adentro del ticket no tenga transición, si no la transición funciona mal.
     ticket.style.transition = 'none';
@@ -33,12 +32,3 @@ wrapper.addEventListener('mousemove', event => {
     ticket.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
 });
 
-//Cuando el mouse salga del ticket activcva evento que hace que vuelva a su posición original.
-wrapper.addEventListener('mouseleave', () => {
-
-    //Añadiendo atributo a la clase "wrapper" la transición suave y el tiempo.
-    ticket.style.transition = 'transform .5s ease-in-out';
-
-    //Especificación a que coordenadas debe volver el ticket. 
-    ticket.style.transform = 'rotateX(0deg) rotateY(0deg)';
-});
