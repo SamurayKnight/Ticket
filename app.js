@@ -22,11 +22,11 @@ window.addEventListener('mousemove', event => {
     ticket.style.transition = 'none';
 
     //Obtenemos los objetos a modificar del evento 'mousemove'
-    const { offsetX, offsetY} = event;
+    const { pageX, pageY} = event;
 
     //Operación matemática para hacer rotar la tarjeta y multiplicamos *10 para que los valores de rotación sean más grandes.
-    const rotationX = ((offsetX - halfWidth) / halfWidth) * 10;
-    const rotationY = ((offsetY - halfHeight) / halfHeight) * 10;
+    const rotationX = ((pageX - halfWidth) / halfWidth) * 10;
+    const rotationY = ((pageY - halfHeight) / halfHeight) * 10;
 
     //Añadiendo las rotaciones al ticket.
     ticket.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
