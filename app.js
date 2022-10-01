@@ -29,3 +29,8 @@ wrapper.addEventListener('mousemove', event => {
     //Añadiendo las rotaciones al ticket.
     ticket.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`
 })
+
+//Cuando salga del ticket vuelva a su posición original.
+wrapper.addEventListener('mousemove', () => {
+    ticket.style.transform = 'rotateX(0deg) rotateY(0deg)'
+})
