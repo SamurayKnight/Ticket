@@ -18,7 +18,7 @@ const halfHeight = height /2;
 
 //Modificamos el evento 'mousemove' para que la tarjeta rote. 
 wrapper.addEventListener('mousemove', event => {
-
+    ticket.style.transition = 'none'
     //Obtenemos los objetos a modificar del evento 'mousemove'
     const { offsetX, offsetY} = event
 
@@ -31,6 +31,7 @@ wrapper.addEventListener('mousemove', event => {
 })
 
 //Cuando salga del ticket vuelva a su posición original.
-wrapper.addEventListener('mousemove', () => {
+wrapper.addEventListener('mouseleave', () => {
+    ticket.style.transition = 'transform .5s ease-in-out' 
     ticket.style.transform = 'rotateX(0deg) rotateY(0deg)'
 })
