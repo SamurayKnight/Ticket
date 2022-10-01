@@ -1,3 +1,4 @@
+//Función para obtener los tags.
 const $ = selector => document.querySelector(selector);
 
 
